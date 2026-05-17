@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clutchub</title>
+    
+    <!-- CSS Modularizado -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+
+    <!-- SIDEBAR: Controle e Status -->
+    <aside class="sidebar">
+        <div class="brand">
+            <h1 class="logo">Clutc<span>Hub</span></h1>
+            <!-- O estado inicial é desconectado, aguardando o Windows ler o USB -->
+            <div id="status-conexao" class="badge status-desconectado">
+                🔴 Aguardando Hardware...
+            </div>
+        </div>
+
+        <nav class="menu">
+            <button class="nav-btn active" data-target="monitor">🕹️ Monitor</button>
+            <button class="nav-btn" data-target="calibracao">⚙️ Calibração</button>
+            <button class="nav-btn" data-target="perfis">💾 Perfis</button>
+        </nav>
+        
+        <div class="footer-info">
+            <span>v1.0.0</span>
+        </div>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL: Onde as abas renderizam -->
+    <main class="content">
+        
+        <!-- TELA 1: MONITOR -->
+        <section id="monitor" class="view active">
+            <header class="view-header">
+                <h2>Monitor de Input</h2>
+                <p>Leitura em tempo real dos sensores.</p>
+            </header>
+            
+            <div class="card">
+                <div class="eixo-header">
+                    <h3>Volante (Eixo X)</h3>
+                    <span id="valor-eixo-x" class="highlight-value">Centro (512)</span>
+                </div>
+                <div class="barra-progresso">
+                    <div id="barra-volante" class="preenchimento" style="width: 50%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TELA 2: CALIBRAÇÃO (Sem EEPROM, só via Software) -->
+        <section id="calibracao" class="view">
+            <header class="view-header">
+                <h2>Calibração Virtual</h2>
+                <p>Ajustes injetados no hardware via software.</p>
+            </header>
+            
+            <div class="card">
+                <h3>Definir Centro</h3>
+                <p class="desc">Alinhe o volante fisicamente e clique para setar o ponto zero.</p>
+                <button id="btn-setar-centro" class="btn btn-primary" disabled>🎯 Centralizar Volante</button>
+            </div>
+
+            <div class="card">
+                <h3>Zona Morta (Deadzone)</h3>
+                <div class="slider-group">
+                    <input type="range" id="slider-deadzone" min="0" max="20" value="2" disabled>
+                    <span id="valor-deadzone" class="highlight-value">2%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- TELA 3: PERFIS -->
+        <section id="perfis" class="view">
+            <header class="view-header">
+                <h2>Setups e Perfis</h2>
+                <p>Gerenciamento de configurações locais (.json).</p>
+            </header>
+            
+            <div class="actions-row">
+                <button id="btn-importar" class="btn btn-secondary">📥 Importar</button>
+                <button id="btn-exportar" class="btn btn-secondary">📤 Exportar</button>
+            </div>
+
+            <div class="card">
+                <h3>Ângulo (Steering Lock)</h3>
+                <div class="slider-group">
+                    <input type="range" id="slider-angulo" min="180" max="900" step="10" value="900" disabled>
+                    <span id="valor-angulo" class="highlight-value">900°</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JS Modularizado (O 'type="module"' é crucial aqui) -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

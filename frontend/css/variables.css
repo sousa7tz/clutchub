@@ -1,0 +1,48 @@
+:root {
+  /* =========================================
+     1. CORES DE FUNDO (Off-Black Profissional)
+     ========================================= */
+  /* Fundo principal da janela (evita preto puro para não cansar a vista) */
+  --bg-app: #121212;       
+  /* Fundo do Menu e dos Cards (um pouco mais claro pra dar relevo) */
+  --bg-surface: #1E1E24;   
+  /* Fundo quando passa o mouse por cima (Hover) */
+  --bg-surface-hover: #2A2A35; 
+
+  /* =========================================
+     2. TIPOGRAFIA E TEXTOS
+     ========================================= */
+  /* Textos principais (Branco suave, nunca #FFF) */
+  --text-primary: #F4F4F5;   
+  /* Textos secundários, descrições e coisas desabilitadas */
+  --text-secondary: #A1A1AA; 
+  /* Fonte limpa do sistema, sem serifa */
+  --font-family: 'Segoe UI', system-ui, sans-serif;
+
+  /* =========================================
+     3. CORES DE AÇÃO (Accent)
+     ========================================= */
+  /* Azul Elétrico - A cor que dá vida ao app */
+  --accent-color: #3B82F6;   
+  --accent-hover: #2563EB;   
+  
+  /* =========================================
+     4. FEEDBACK DE SISTEMA E HARDWARE
+     ========================================= */
+  --status-connected: #10B981;    /* Verde (Hardware OK) */
+  --status-disconnected: #EF4444; /* Vermelho (Sem Cabo) */
+  --warning: #F59E0B;             /* Laranja (Avisos) */
+
+  /* =========================================
+     5. ESTRUTURA E BORDAS
+     ========================================= */
+  /* Borda quase invisível para separar elementos no fundo escuro */
+  --border-color: rgba(255, 255, 255, 0.08);
+  /* Arredondamento padrão para tirar a cara de "site antigo" */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  
+  /* Transições suaves para botões e sliders */
+  --transition-fast: 0.15s ease;
+}
